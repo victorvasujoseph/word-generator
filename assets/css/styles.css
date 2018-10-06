@@ -10,6 +10,17 @@ body{
     bottom: 30px;
 }
 
+#div-wins-text,#div-wins-val{
+    font-family: 'Charmonman', cursive;
+    font-size:50px;
+    color:white;
+    
+}
+
+#div-wins-val{
+    color:#AD8468;
+}
+
 #about-this-game{
     color:white;
     font-size:20px;   

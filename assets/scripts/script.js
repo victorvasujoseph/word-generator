@@ -259,47 +259,52 @@ var wordList = [
   }
 
   
-  var divWord =  document.getElementById("div-word");
-  var btnStartGame = document.getElementById('btn-start-game');
-  var btnIntroYes = document.getElementById('btn-abt-yes');
-  var container = document.getElementById("question-1");
-  var btnIntroNo = document.getElementById("btn-abt-no");
-  var totalWin = 0;
-  var trackWin = [];
 
-  /* Button click Start's the game */
-//   btnStartGame.onclick = function(e){
-//     guessWord = generateRandomWord();
-//     console.log(guessWord);
-//     for(i=0;i < guessWord.length;i++){
-//         trackWin.push(0);
-//         var div = document.createElement("div");
-//         div.textContent = "_";
-//         div.setAttribute("class", "p-2 border");
-//         div.setAttribute("id",("word-"+i));
-//         divWord.appendChild(div);
-//     }
-//     gameMode = true;
-//   }
+    var divWord =  document.getElementById("div-word");
+    var btnStartGame = document.getElementById('btn-start-game');
+    var btnIntroYes = document.getElementById('btn-abt-yes');
+    var container = document.getElementById("question-1");
+    var btnIntroNo = document.getElementById("btn-abt-no");
+    var audioElement = document.getElementById("audio");
+    var winsVal =  document.getElementById("div-wins-val");
+    var winsText =  document.getElementById("div-wins-text");
 
-  btnIntroYes.onclick = function(e){
-    divWord.innerHTML ="";
-    container.innerHTML=" You are Brave !! Let's Play then - Start Your Guess";
-    btnIntroYes.style.visibility = "hidden";
-    btnIntroNo.innerHTML = "Cancel";
+    var totalWin = 0;
+    var trackWin = [];
+    
+    btnIntroYes.onclick = function(e){
+        audioElement.play();
+        container.innerHTML=" You are Brave !! Let's Play then - Start Your Guess";
+        btnIntroYes.style.visibility = "hidden";
+        btnIntroNo.innerHTML = "Cancel";
+        divWord.innerHTML ="";
 
-    guessWord = generateRandomWord();
-    console.log(guessWord);
-    for(i=0;i < guessWord.length;i++){
-        trackWin.push(0);
-        var div = document.createElement("div");
-        div.textContent = "_";
-        div.setAttribute("class", "p-2 ");
-        div.setAttribute("id",("word-"+i));
-        divWord.appendChild(div);
+        winsVal.innerHTML=totalWin;
+        winsText.innerHTML="Total Wins : "
+
+        guessWord = generateRandomWord();
+        console.log(guessWord);
+        for(i=0;i < guessWord.length;i++){
+            trackWin.push(0);
+            var div = document.createElement("div");
+            div.textContent = "_";
+            div.setAttribute("class", "p-2 ");
+            div.setAttribute("id",("word-"+i));
+            div.style.color = "#AD8468";
+            divWord.appendChild(div);
+        }
+        gameMode = true;
     }
-    gameMode = true;
-  }
+
+    btnIntroNo.onclick = function(e){
+        btnIntroYes.style.visibility = "hidden"; 
+        btnIntroNo.style.visibility = "hidden"; 
+        container.innerHTML="Come Back when you are ready to play !! ";
+        divWord.innerHTML ="";
+        winsVal.innerHTML="";
+        winsText.innerHTML=""
+        audioElement.pause();
+    }
 
     document.onkeyup = function (event){
         if(gameMode === true){
@@ -321,8 +326,11 @@ var wordList = [
                     console.log('You Win'); 
                     btnIntroYes.style.visibility = "initial";
                     btnIntroYes.innerHTML = "Play again";
+                    container.innerHTML="Good Job !! Ready for another one ??"
                     gameMode = false;
                     trackWin = [];
+                    totalWin++;
+                    winsVal.innerHTML=totalWin;
                 }
             }     
         };
