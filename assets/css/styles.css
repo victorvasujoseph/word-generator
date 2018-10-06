@@ -2,7 +2,7 @@ body{
     background-image: url('../images/img-3.jpg');
     font-family: 'Charmonman', cursive;
 }
-#index-container{
+#index-container,#about-container{
     font-family: 'Charmonman', cursive;
     font-size:40px;
     color:white;

@@ -69,6 +69,8 @@
         winsVal.innerHTML="";
         winsText.innerHTML=""
         audioElement.pause();
+        entKeyVal.innerHTML="";
+        entKeyTxt.innerHTML="";
     }
 
     document.onkeyup = function (event){
