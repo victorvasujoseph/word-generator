@@ -6,22 +6,31 @@ body{
     font-family: 'Charmonman', cursive;
     font-size:40px;
     color:white;
-    position: absolute;
-    bottom: 30px;
+    height: 200px;
+    /* position: absolute;
+    bottom: 30px; */
 }
 
 #div-wins-text,#div-wins-val{
     font-family: 'Charmonman', cursive;
-    font-size:50px;
+    font-size:30px;
+    color:white;   
+}
+
+#div-entered-keys,#div-entered-keys-val{
     color:white;
-    
+    font-size:30px;
 }
 
 #div-wins-val{
-    color:#AD8468;
+    color:	rgb(221, 191, 23);
+    font-size:30px;
 }
 
 #about-this-game{
     color:white;
     font-size:20px;   
+}
+#divider{
+    height: 300px;
 }
