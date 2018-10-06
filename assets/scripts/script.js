@@ -246,6 +246,9 @@ var wordList = [
     "your","yourself","youth","zero","zebra","zipper","zoo","zulu"
   ];
 
+  var gameMode = false;
+  var guessWord = "";
+
   /* Selects a random word from the wordList Array */ 
   function generateRandomWord() {
     return wordList[randInt(wordList.length)];
@@ -254,14 +257,74 @@ var wordList = [
   function randInt(lessThan) {
     return Math.floor(Math.random() * lessThan);
   }
-  /* Button click Start's the game */
 
+  
   var divWord =  document.getElementById("div-word");
+  var btnStartGame = document.getElementById('btn-start-game');
+  var btnIntroYes = document.getElementById('btn-abt-yes');
+  var container = document.getElementById("question-1");
+  var btnIntroNo = document.getElementById("btn-abt-no");
+  var totalWin = 0;
+  var trackWin = [];
 
-  document.getElementById('btn-start-game').onclick = function(e){
-    var div = document.createElement("div");
-    div.textContent = "_";
-    div.setAttribute("class", "p-2 border");
-    divWord.appendChild(div);
+  /* Button click Start's the game */
+//   btnStartGame.onclick = function(e){
+//     guessWord = generateRandomWord();
+//     console.log(guessWord);
+//     for(i=0;i < guessWord.length;i++){
+//         trackWin.push(0);
+//         var div = document.createElement("div");
+//         div.textContent = "_";
+//         div.setAttribute("class", "p-2 border");
+//         div.setAttribute("id",("word-"+i));
+//         divWord.appendChild(div);
+//     }
+//     gameMode = true;
+//   }
+
+  btnIntroYes.onclick = function(e){
+    divWord.innerHTML ="";
+    container.innerHTML=" You are Brave !! Let's Play then - Start Your Guess";
+    btnIntroYes.style.visibility = "hidden";
+    btnIntroNo.innerHTML = "Cancel";
+
+    guessWord = generateRandomWord();
+    console.log(guessWord);
+    for(i=0;i < guessWord.length;i++){
+        trackWin.push(0);
+        var div = document.createElement("div");
+        div.textContent = "_";
+        div.setAttribute("class", "p-2 ");
+        div.setAttribute("id",("word-"+i));
+        divWord.appendChild(div);
+    }
+    gameMode = true;
   }
+
+    document.onkeyup = function (event){
+        if(gameMode === true){
+            console.log(trackWin);
+            var userGuess = event.key;
+            if(guessWord.indexOf(userGuess) === -1){
+                console.log("wrong Alphabet");
+                //Update the user typed woerd list
+            } else{
+                for(i=0;i < guessWord.length;i++){
+                    if(userGuess === guessWord[i]){
+                        console.log('alphabet is at :' + i);
+                        var word =  document.getElementById(("word-"+i));
+                        word.textContent = userGuess;
+                        trackWin[i] = 1;
+                    }
+                }
+                if(trackWin.indexOf(0) === -1){
+                    console.log('You Win'); 
+                    btnIntroYes.style.visibility = "initial";
+                    btnIntroYes.innerHTML = "Play again";
+                    gameMode = false;
+                    trackWin = [];
+                }
+            }     
+        };
+    }
 

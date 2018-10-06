@@ -1,0 +1,16 @@
+body{
+    background-image: url('../images/img-3.jpg');
+    font-family: 'Charmonman', cursive;
+}
+#index-container{
+    font-family: 'Charmonman', cursive;
+    font-size:40px;
+    color:white;
+    position: absolute;
+    bottom: 30px;
+}
+
+#about-this-game{
+    color:white;
+    font-size:20px;   
+}
