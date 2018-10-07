@@ -2,7 +2,7 @@ body{
     background-image: url('../images/img-3.jpg');
     font-family: 'Charmonman', cursive;
 }
-#index-container,#about-container{
+#index-container,#about-container,p{
     font-family: 'Charmonman', cursive;
     font-size:40px;
     color:white;
@@ -27,7 +27,7 @@ body{
     font-size:30px;
 }
 
-#about-this-game{
+#about-this-game, #Home{
     color:white;
     font-size:20px;   
 }
