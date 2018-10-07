@@ -53,9 +53,10 @@
             trackWin.push(0);
             var div = document.createElement("div");
             div.textContent = "_";
-            div.setAttribute("class", "p-2 ");
+            div.setAttribute("class", "p-2 border");
             div.setAttribute("id",("word-"+i));
             div.style.color = "rgb(221, 191, 23)";
+            div.style.fontSize = "30px";
             divWord.appendChild(div);
         }
         gameMode = true;
@@ -87,7 +88,7 @@
                 for(i=0;i < entKeyArray.length;i++){
                     var div2 = document.createElement("div");
                     div2.textContent = entKeyArray[i];
-                    div2.setAttribute("class", "p-2 ");
+                    div2.setAttribute("class", "p-1");
                     div2.setAttribute("id",("key"+i));
                     div2.style.color = "rgb(221, 191, 23)";
                     entKeyVal.appendChild(div2);
