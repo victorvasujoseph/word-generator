@@ -34,3 +34,19 @@ body{
 #divider{
     height: 300px;
 }
+
+@media only screen and (max-width: 600px) {
+    #divider{
+        height: 100px;
+    }
+    #index-container,#about-container,p{
+        font-size:20px;
+        height: 100px;
+    }
+    #div-wins-val,#div-wins-text{  
+        font-size:20px;
+    }
+    #div-entered-keys,#div-entered-keys-val{
+        font-size:20px;
+    }
+}
